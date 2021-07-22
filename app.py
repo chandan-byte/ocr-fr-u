@@ -1,12 +1,12 @@
 import streamlit as st
 import pytesseract
+import cv2
 from PIL import Image
-pytesseract.pytesseract.tesseract_cmd = '/app/.apt/user/bin/tesseract'
-st.title("OCR - Optical Character Recognition")
-img = st.sidebar.file_uploader("Choose an image")
+pytesseract.pytesseract.tesseract_cmd = r'/usr/local/bin/pytesseract'
+st.title("minor project")
+img = st.file_uploader("chose an image")
 if img is not None:
   img_read = Image.open(img)
-  st.image(img,caption='Uploaded Image')
-  if st.button('PREDICT'):
-    op = pytesseract.image_to_string(img_read)
-    st.write(op) 
+  st.image(img)
+  op = pytesseract.image_to_string(img_read)
+  st.write(op)
